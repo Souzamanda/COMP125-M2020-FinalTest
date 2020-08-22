@@ -1,4 +1,8 @@
 "use strict";
+//File name: app.js
+//Author's name: Amanda Cordeiro
+//Website name: Final Term
+//File description: File with interface functions
 let Game = (function () {
     // variable declarations
     let canvas = document.getElementsByTagName('canvas')[0];
@@ -62,6 +66,10 @@ let Game = (function () {
     function Update() {
         stage.update();
     }
+    /**
+     * This function randomize the output
+     *
+     */
     function Reels() {
         let betDice = [" ", " "];
         let outcome = [0, 0];

@@ -1,3 +1,8 @@
+//File name: app.js
+//Author's name: Amanda Cordeiro
+//Website name: Final Term
+//File description: File with interface functions
+
 let Game = (function(){
 
     // variable declarations
@@ -75,6 +80,10 @@ let Game = (function(){
         stage.update();
     }
 
+    /**
+     * This function randomize the output
+     * 
+     */
     function Reels():string[]
     {
         let betDice = [" ", " "];
