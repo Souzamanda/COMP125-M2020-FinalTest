@@ -124,7 +124,9 @@ let Game = (function () {
             //Replace the images in the reels
             leftReel.image = assets.getResult(reels[0]);
             rightReel.image = assets.getResult(reels[1]);
-            //leftLabel.text = 
+            //Replace dice's labels
+            leftLabel.setText(reels[0]);
+            rightLabel.setText(reels[1]);
         });
     }
     /**

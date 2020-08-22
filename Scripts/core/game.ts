@@ -152,7 +152,9 @@ let Game = (function(){
             leftReel.image = assets.getResult(reels[0]) as HTMLImageElement;
             rightReel.image = assets.getResult(reels[1]) as HTMLImageElement;
 
-            //leftLabel.text = 
+            //Replace dice's labels
+            leftLabel.setText(reels[0]);
+            rightLabel.setText(reels[1]); 
         });
     }
 
