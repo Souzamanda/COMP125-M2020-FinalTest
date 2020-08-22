@@ -130,17 +130,17 @@ let Game = (function(){
         stage.addChild(rollButton);
 
         // Labels
-        leftLabel = new UIObjects.Label("1", "40px", "Consolas", "#ffffff", Config.Game.CENTER_X - 130, Config.Game.CENTER_Y + 50, true);
+        leftLabel = new UIObjects.Label(" ", "40px", "Consolas", "#ffffff", Config.Game.CENTER_X - 130, Config.Game.CENTER_Y + 50, true);
         stage.addChild(leftLabel);
 
-        rightLabel = new UIObjects.Label("1", "40px", "Consolas", "#ffffff", Config.Game.CENTER_X + 130, Config.Game.CENTER_Y + 50, true);
+        rightLabel = new UIObjects.Label(" ", "40px", "Consolas", "#ffffff", Config.Game.CENTER_X + 130, Config.Game.CENTER_Y + 50, true);
         stage.addChild(rightLabel);
 
         // Reel GameObjects
-        leftReel = new Core.GameObject("1",  Config.Game.CENTER_X - 130, Config.Game.CENTER_Y - 90, true);
+        leftReel = new Core.GameObject("blank",  Config.Game.CENTER_X - 130, Config.Game.CENTER_Y - 90, true);
         stage.addChild(leftReel);
 
-        rightReel = new Core.GameObject("1",  Config.Game.CENTER_X + 130, Config.Game.CENTER_Y - 90, true);
+        rightReel = new Core.GameObject("blank",  Config.Game.CENTER_X + 130, Config.Game.CENTER_Y - 90, true);
         stage.addChild(rightReel);
     }
 
@@ -160,6 +160,8 @@ let Game = (function(){
             //Replace dice's labels
             leftLabel.setText(reels[0]);
             rightLabel.setText(reels[1]); 
+
+            new Audio("./Assets/audio/dice_roll.mp3").play();
         });
     }
 
