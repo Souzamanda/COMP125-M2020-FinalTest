@@ -74,7 +74,45 @@ let Game = (function(){
         stage.update();
     }
 
-  
+    function Reels():string[]
+    {
+        let betDice = [" ", " "];
+        let outcome = [0, 0];
+
+        for (let spin =0; spin < 2; spin++)
+        {
+            outcome[spin] = Math.floor(Util.Mathf.RandomRange(1, 6));
+            switch (outcome[spin])
+            {
+                case Util.Mathf.Clamp(outcome[spin], 1, 1):
+                    betDice[spin] = "1";
+                    one++;
+                    break;
+                case Util.Mathf.Clamp(outcome[spin], 2, 2):
+                    betDice[spin] = "2";
+                    two++;
+                    break;
+                case Util.Mathf.Clamp(outcome[spin], 3, 3):
+                    betDice[spin] = "3";
+                    three++;
+                    break;
+                case Util.Mathf.Clamp(outcome[spin], 4, 4):
+                    betDice[spin] = "4";
+                    four++;
+                    break;
+                case Util.Mathf.Clamp(outcome[spin], 5, 5):
+                    betDice[spin] = "5";
+                    five++;
+                    break;
+                case Util.Mathf.Clamp(outcome[spin], 6, 6):
+                    betDice[spin] = "6";
+                    six++;
+                    break;
+
+            }
+        }
+        return betDice;
+    }
 
     /**
      * This function is builds the interface
@@ -108,11 +146,11 @@ let Game = (function(){
     function InterfaceControl():void
     {
         rollButton.on("click", ()=>{
-           /*  let reels = Reels()
+            let reels = Reels()
 
             //Replace the images in the reels
             leftReel.image = assets.getResult(reels[0]) as HTMLImageElement;
-            rightReel.image = assets.getResult(reels[1]) as HTMLImageElement; */
+            rightReel.image = assets.getResult(reels[1]) as HTMLImageElement;
 
             //leftLabel.text = 
         });
