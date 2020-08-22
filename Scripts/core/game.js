@@ -4,6 +4,7 @@ let Game = (function () {
     let canvas = document.getElementsByTagName('canvas')[0];
     let stage;
     let assets;
+    let boardBackground;
     let rollButton;
     let leftReel;
     let rightReel;
@@ -24,7 +25,7 @@ let Game = (function () {
         { id: "5", src: "./Assets/images/5.png" },
         { id: "6", src: "./Assets/images/6.png" },
         { id: "backButton", src: "./Assets/images/startButton.png" },
-        { id: "background", src: "./Assets/images/background.png" },
+        { id: "background", src: "./Assets/images/background.jpg" },
         { id: "blank", src: "./Assets/images/blank.png" },
         { id: "button", src: "./Assets/images/button.png" },
         { id: "nextButton", src: "./Assets/images/nextButton.png" },
@@ -100,13 +101,16 @@ let Game = (function () {
      * Puts every thing in place
      */
     function BuildInterface() {
+        //Background
+        boardBackground = new Core.GameObject("background", Config.Game.CENTER_X, Config.Game.CENTER_Y, true);
+        stage.addChild(boardBackground);
         // Buttons
         rollButton = new UIObjects.Button("rollButton", Config.Game.CENTER_X, Config.Game.CENTER_Y + 150, true);
         stage.addChild(rollButton);
         // Labels
-        leftLabel = new UIObjects.Label("1", "40px", "Consolas", "#000000", Config.Game.CENTER_X - 130, Config.Game.CENTER_Y + 50, true);
+        leftLabel = new UIObjects.Label("1", "40px", "Consolas", "#ffffff", Config.Game.CENTER_X - 130, Config.Game.CENTER_Y + 50, true);
         stage.addChild(leftLabel);
-        rightLabel = new UIObjects.Label("1", "40px", "Consolas", "#000000", Config.Game.CENTER_X + 130, Config.Game.CENTER_Y + 50, true);
+        rightLabel = new UIObjects.Label("1", "40px", "Consolas", "#ffffff", Config.Game.CENTER_X + 130, Config.Game.CENTER_Y + 50, true);
         stage.addChild(rightLabel);
         // Reel GameObjects
         leftReel = new Core.GameObject("1", Config.Game.CENTER_X - 130, Config.Game.CENTER_Y - 90, true);
