@@ -3,11 +3,21 @@ let Game = (function(){
     // variable declarations
     let canvas:HTMLCanvasElement = document.getElementsByTagName('canvas')[0];
     let stage:createjs.Stage;
-    
     let assets: createjs.LoadQueue;
+    let rollButton: UIObjects.Button;
+    let leftReel: Core.GameObject;
+    let rightReel: Core.GameObject;
+    let leftLabel: UIObjects.Label;
+    let rightLabel: UIObjects.Label;
 
-    let exampleLabel: UIObjects.Label;
-    let exampleButton: UIObjects.Button;    
+    // Number tallies
+    let one = 0;
+    let two = 0;
+    let three = 0;
+    let four = 0;
+    let five = 0;
+    let six = 0;
+       
 
     let assetManifest = 
     [
@@ -64,6 +74,50 @@ let Game = (function(){
         stage.update();
     }
 
+  
+
+    /**
+     * This function is builds the interface
+     * Puts every thing in place
+     */
+    function BuildInterface():void
+    {
+        // Buttons
+        rollButton = new UIObjects.Button("rollButton", Config.Game.CENTER_X, Config.Game.CENTER_Y + 150, true);
+        stage.addChild(rollButton);
+
+        // Labels
+        leftLabel = new UIObjects.Label("1", "40px", "Consolas", "#000000", Config.Game.CENTER_X - 130, Config.Game.CENTER_Y + 50, true);
+        stage.addChild(leftLabel);
+
+        rightLabel = new UIObjects.Label("1", "40px", "Consolas", "#000000", Config.Game.CENTER_X + 130, Config.Game.CENTER_Y + 50, true);
+        stage.addChild(rightLabel);
+
+        // Reel GameObjects
+        leftReel = new Core.GameObject("1",  Config.Game.CENTER_X - 130, Config.Game.CENTER_Y - 90, true);
+        stage.addChild(leftReel);
+
+        rightReel = new Core.GameObject("1",  Config.Game.CENTER_X + 130, Config.Game.CENTER_Y - 90, true);
+        stage.addChild(rightReel);
+    }
+
+    /**
+     * This function is controls items in the interface
+     * 
+     */
+    function InterfaceControl():void
+    {
+        rollButton.on("click", ()=>{
+           /*  let reels = Reels()
+
+            //Replace the images in the reels
+            leftReel.image = assets.getResult(reels[0]) as HTMLImageElement;
+            rightReel.image = assets.getResult(reels[1]) as HTMLImageElement; */
+
+            //leftLabel.text = 
+        });
+    }
+
     /**
      * This is the main function of the Game (where all the fun happens)
      *
@@ -72,15 +126,10 @@ let Game = (function(){
     {
         console.log(`%c Main Function`, "color: grey; font-size: 14px; font-weight: bold;");
 
-        exampleLabel = new UIObjects.Label("An Example Label", "40px", "Consolas", "#000000", Config.Game.CENTER_X, Config.Game.CENTER_Y, true);
-        stage.addChild(exampleLabel);
+        BuildInterface();
+        InterfaceControl();
+        Util.Mathf.RandomRange
 
-        exampleButton = new UIObjects.Button("button", Config.Game.CENTER_X, Config.Game.CENTER_Y + 100, true);
-        stage.addChild(exampleButton);
-
-        exampleButton.on("click", ()=>{
-            console.log("example button clicked");
-        });
     }
 
     window.addEventListener('load', Preload);
